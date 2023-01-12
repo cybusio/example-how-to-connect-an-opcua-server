@@ -1,25 +1,17 @@
 
 # -----------------------------------------------------------------------------
-# Device Commissioning File
-# Cybus Learn: How to connect and integrate an OPC UA server
-# Url: https://learn.cybus.io/lessons/how-to-connect-and-integrate-an-opcua-server/
-# Author: Marius Schmeding
-# Date: Jul 2020
+# Service YAML
+# Guide: How to connect an OPC UA server
 # -----------------------------------------------------------------------------
 
 description: >
 
-  OPC UA Example Commissioning File
-  Cybus Learn - How to connect and integrate an OPC UA server
-  https://learn.cybus.io/lessons/how-to-connect-and-integrate-an-opcua-server/
+  OPC UA Example Service
+  Cybus Knowledge Base - How to connect an OPC UA server
 
 metadata:
 
-  name: OPC UA Example Commissioning File
-  version: 1.0.1
-  icon: https://www.cybus.io/wp-content/uploads/2019/03/Cybus-logo-Claim-lang.svg
-  provider: cybus
-  homepage: https://www.cybus.io
+  name: OPC UA Example Service
 
 parameters:
 
@@ -50,6 +42,7 @@ resources:
     properties:
       protocol: Opcua
       connection: !ref opcuaConnection
+      topic: server/status/currenttime
       subscribe:
         nodeId: i=2258
 
@@ -58,6 +51,7 @@ resources:
     properties:
       protocol: Opcua
       connection: !ref opcuaConnection
+      topic: building-automation/airconditioner/1/humidity
       subscribe:
         nodeId: ns=3;s=AirConditioner_1.Humidity
         #browsePath: /0:Objects/3:BuildingAutomation/3:AirConditioner_1/3:Humidity
@@ -67,6 +61,7 @@ resources:
     properties:
       protocol: Opcua
       connection: !ref opcuaConnection
+      topic: building-automation/airconditioner/1/power-consumption
       subscribe:
         nodeId: ns=3;s=AirConditioner_1.PowerConsumption
         
@@ -75,6 +70,7 @@ resources:
     properties:
       protocol: Opcua
       connection: !ref opcuaConnection
+      topic: building-automation/airconditioner/1/temperature
       subscribe:
         nodeId: ns=3;s=AirConditioner_1.Temperature
         
@@ -83,6 +79,7 @@ resources:
     properties:
       protocol: Opcua
       connection: !ref opcuaConnection
+      topic: building-automation/airconditioner/1/temperature-setpoint
       subscribe:
         nodeId: ns=3;s=AirConditioner_1.TemperatureSetPoint
 
@@ -91,35 +88,7 @@ resources:
     properties:
       protocol: Opcua
       connection: !ref opcuaConnection
+      topic: building-automation/airconditioner/1/temperature-setpoint
       write:
         nodeId: ns=3;s=AirConditioner_1.TemperatureSetPoint
         #browsePath: /0:Objects/3:BuildingAutomation/3:AirConditioner_1/3:TemperatureSetPoint
-
-  mapping:
-    type: Cybus::Mapping
-    properties:
-      mappings:
-        - subscribe:
-            endpoint: !ref currentTime
-          publish:
-            topic: !sub 'server/status/currenttime'
-        - subscribe:
-            endpoint: !ref Humidity
-          publish:
-            topic: !sub 'building-automation/airconditioner/1/humidity'
-        - subscribe:
-            endpoint: !ref PowerConsumption
-          publish:
-            topic: !sub 'building-automation/airconditioner/1/power-consumption'
-        - subscribe:
-            endpoint: !ref Temperature
-          publish:
-            topic: !sub 'building-automation/airconditioner/1/temperature'
-        - subscribe:
-            endpoint: !ref TemperatureSetpointSub
-          publish:
-            topic: !sub 'building-automation/airconditioner/1/temperature-setpoint'
-        - subscribe:
-            topic: !sub 'building-automation/airconditioner/1/temperature-setpoint/set'
-          publish:
-            endpoint: !ref TemperatureSetpointWrite

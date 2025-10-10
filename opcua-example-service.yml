@@ -1,13 +1,6 @@
-
-# -----------------------------------------------------------------------------
-# Service YAML
-# Guide: How to connect an OPC UA server
-# -----------------------------------------------------------------------------
-
 description: >
 
-  OPC UA Example Service
-  Cybus Knowledge Base - How to connect an OPC UA server
+  Using Connectware as an OPC UA Client
 
 metadata:
 

@@ -1,10 +1,11 @@
 description: >
 
   Using Connectware as an OPC UA Client
+  https://docs.cybus.io/guides/system-connectivity/using-connectware-as-an-opc-ua-client
 
 metadata:
 
-  name: OPC UA Example Service
+  name: OPC UA Example Service Commissioning File
 
 parameters:
 

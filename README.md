@@ -1,3 +1,4 @@
-# Cybus Learn Lesson Example 
+# Using Connectware as an OPC UA Client
 
-This repository contains the example Service YAML for the Cybus Learn Article "How to connect an OPC UA server".
+This repository provides a service commissioning file that serves as an example for the Connectware documentation. For more information, see [Using Connectware as an OPC UA Client
+](https://docs.cybus.io/guides/system-connectivity/using-connectware-as-an-opc-ua-client).
